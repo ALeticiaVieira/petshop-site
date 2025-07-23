@@ -21,9 +21,3 @@ document.querySelector('.prev').addEventListener('click', prevSlide);
 
 setInterval(nextSlide, 5000);
 
-window.addEventListener('resize', () => {
-  const menu = document.getElementById("menu");
-  if (window.innerWidth > 768) {
-    menu.classList.remove("open");
-  }
-});
