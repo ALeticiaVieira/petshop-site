@@ -21,7 +21,9 @@ document.querySelector('.prev').addEventListener('click', prevSlide);
 
 setInterval(nextSlide, 5000);
 
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("open");
+window.addEventListener('resize', () => {
+  const menu = document.getElementById("menu");
+  if (window.innerWidth > 768) {
+    menu.classList.remove("open");
   }
+});
