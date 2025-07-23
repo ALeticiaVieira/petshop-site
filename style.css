@@ -567,14 +567,16 @@ body {
 
   .services {
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: center;
+    padding: 10px;
     gap: 15px;
   }
 
   .service-item {
-    width: 100%;
-    max-width: none;
+    flex: 1 1 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
   }
 }
 
