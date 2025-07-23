@@ -491,32 +491,102 @@ body {
 }
 
 @media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .footer {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-section {
-    margin-bottom: 20px;
-  }
-
-  .payment-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .logo-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 0 10px;
+    margin-left: 0;
+  }
+
+  .search-bar input[type="text"] {
+    padding: 0 15px;
   }
 
   .cart {
-    align-self: flex-end
+    align-self: center;
+    margin-left: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .navb {
+    padding: 0;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .menu-item {
+    text-align: center;
+  }
+
+  .submenu {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    box-shadow: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .services,
+  .benefits {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .benefit-card,
+  .service-item {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrossel-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav.prev,
+  .nav.next {
+    margin: 0;
+    top: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    gap: 20px;
+  }
+
+  .footer img {
+    width: 32px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+}
+
 
 
