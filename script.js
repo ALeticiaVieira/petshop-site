@@ -21,3 +21,7 @@ document.querySelector('.prev').addEventListener('click', prevSlide);
 
 setInterval(nextSlide, 5000);
 
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("show");
+  }

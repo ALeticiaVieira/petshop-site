@@ -398,18 +398,14 @@ body {
 
 
 .nav.prev {
-    left: 15px;
-    margin-top: 150px;
-    margin-left: 300px;
-    padding: 20px;
+    left: 20px;
+    padding: 15px;
     background-color: bisque;
 }
 
 .nav.next {
-    right: 15px;
-    margin-top: 150px;
-    margin-right: 300px;
-    padding: 20px;
+    right: 20px;
+    padding: 15px;
     background-color: bisque;
 }
 
@@ -491,17 +487,24 @@ body {
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }  
+
+  .logo {
+    height: 100px;
+  }
+
   .logo-container {
+    padding-left: 0;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
+    text-align: center;
   }
 
   .search-bar {
-    width: 100%;
-    padding: 0 10px;
-    margin-left: 0;
+    width: 90%;
+    margin: 10px auto;
   }
 
   .search-bar input[type="text"] {
@@ -509,8 +512,13 @@ body {
   }
 
   .cart {
-    align-self: center;
-    margin-left: 0;
+    position: static;
+    margin-top: 10px;
+  }
+
+  .promoc {
+    font-size: 14px;
+    padding: 8px;
   }
 }
 
@@ -569,8 +577,19 @@ body {
 
   .nav.prev,
   .nav.next {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
     margin: 0;
-    top: 45%;
+    background-color: bisque;
+  }
+
+  .nav.prev {
+    left: 10px;
+  }
+
+  .nav.next {
+    right: 10px;
   }
 }
 
@@ -588,5 +607,31 @@ body {
   }
 }
 
+.hamburger {
+    display: none;
+    font-size: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: bisque;
+    border-radius: 8px;
+    margin: 10px;
+}
 
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: bisque;
+        padding: 10px 0;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+}
 
