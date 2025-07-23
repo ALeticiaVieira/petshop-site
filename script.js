@@ -23,5 +23,5 @@ setInterval(nextSlide, 5000);
 
 function toggleMenu() {
     const menu = document.getElementById("menu");
-    menu.classList.toggle("show");
+    menu.classList.toggle("open");
   }
