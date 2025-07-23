@@ -15,6 +15,9 @@ Desenvolvi um projeto de um pet shop online, onde testei algumas ferramentas que
 > Em breve disponível online via GitHub Pages:
 **https://aleticiavieira.github.io/petshop-site/**
 
+**Acesse o site online:**  
+[https://aleticiavieira.github.io/petshop-site/](https://aleticiavieira.github.io/petshop-site/)
+
 ## Funcionalidades
 
 - Menu com categorias por tipo de pet
