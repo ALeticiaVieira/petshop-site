@@ -1,631 +1,337 @@
-@charset "UTF-8";
+@charset "UTF-8"; /*Para o uso de caracteres*/
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { /*Margens e preenchimentos dos navegadores*/
+  margin: 0; /*Margem*/
+  padding: 0; /*Preenchimento*/
+  box-sizing: border-box; /*Para incluir margin e padding no tamanho total do elemento*/
+} 
+
+header { /*Cabeçalho*/
+  background-color: bisque; /*Cor de fundo*/
 }
 
-header {
-    background-color: bisque;
-}
-
-header h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-left: 100px;
-}
-
-.navb {
-    padding: 5px;
-    padding-left: 300px;
-    border-bottom: 1px solid #ddd;
+.navb { /*Barra de navegação*/
+  padding: 5px; /*Espaçamento interno*/
+  padding-left: 300px; /*Localização*/
+  border-bottom: 1px solid #ddd; /*Linha no final da barra*/
 }    
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    padding-left: 40px;
+.logo-container { /*Container logo*/
+  display: flex; /*Organização da logo junto aos elementos*/
+  align-items: center; /*Alinhamento dos itens no centro*/
+  padding-left: 40px; /*Localização dos itens*/
 }
 
-.logo {
-    height: 180px;
-    margin-right: 10px;
-    vertical-align: middle;
+.logo { /*Logo*/
+  height: 180px; /*Tamanho da imagem*/
+  margin-right: 10px; /*Espaçamento à direita*/
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    overflow: hidden;
-    height: 35px;
-    background-color: #fff;
-    margin-left: 130px;
+.search-bar { /*Barra de busca*/
+  border: 1px solid #ccc; /*Estilo da barra*/
+  border-radius: 25px; /*Arredondamento das bordas*/
+  overflow: hidden; /*Elementos permaneçam na barra*/
+  height: 35px; /*Tamanho da barra (altura)*/
+  background-color: #fff; /*Cor de fundo*/
+  margin-left: 130px; /*Localização da barra à direita*/
 }
 
-.search-bar input[type="text"] {
-    border: none;
-    padding: 0 300px;
-    outline: none;
-    flex: 1;
-    font-size: 14px;
+.search-bar input[type="text"] { /*Texto da barra de busca*/
+  border: none; /*Sem borda*/
+  padding: 0 300px; /*Tamanho*/
+  outline: none; /*Remove linha de foco que aparece ao clicar*/
+  font-size: 16px; /*Tamanho da fonte*/
 }
 
-.search-bar button {
-    background-color: #e6c088;
-    color: white;
-    border: none;
-    padding: 0 15px;
-    cursor: pointer;
-    height: 100%;
-    font-size: 16px;
+.search-bar button { /*Botão de pesquisa*/
+  background-color: #e6c088; /*Cor de fundo*/
+  border: none; /*Sem borda*/
+  padding: 0 15px; /*Tamanho*/
+  cursor: pointer; /*Formato do cursor*/
+  height: 100%; /*Altura da barra*/
+  font-size: 18px; /*Tamanho da fonte (no caso, do emoji)*/
 }
 
-.cart {
-    position: relative;
-    margin-left: 10px;
+.cart { /*Carrinho de compras*/
+  position: relative; /*Posição de elementos filhos em relação à ele (contador)*/
+  margin-left: 10px; /*Localização*/
 }
 
-.cart img {
-    width: 30px;
-    cursor: pointer;
+.cart img { /*Imagem do carrinho de compras*/
+  width: 30px; /*Tamanho da imagem*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #432c09;
-    color: white;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 50%;
+.cart-count { /*Contador*/
+  position: absolute; /*Posiciona o contador sobre a imagem do carrinho de compras*/
+  top: -8px; /*Posição em relação ao topo*/
+  right: -5px; /*Posição à direita*/
+  background-color: #432c09; /*Cor de fundo do contador*/
+  color: white; /*Cor da fonte do contador*/
+  font-size: 12px; /*Tamanho da fonte do contador*/
+  padding: 2px 6px; /*Tamanho do contador*/
+  border-radius: 50%; /*Formato arredondado do contador*/
 }
 
-.menu {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-    margin-top: -40px;
+.menu { /*Formatação do menu*/
+  display: flex; /*Alinhamento horizontal dos itens*/
+  list-style: none; /*Remove marcadores de lista*/
+  gap: 45px; /*Espaçamento entre os itens*/
+  margin-top: -40px; /*Distância do menu para o topo*/
+  margin-left: -60px; /*Distância dos itens para margem lateral*/ 
 }
 
-.menu-item {
-    position: relative;
-    cursor: pointer;
+.menu-item { /*Relação dos submenus com o menu*/
+  position: relative; /*Exibição dos submenus ao passar o mouse por cima*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  padding: 10px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  z-index: 99;
-  list-style: none;
+.submenu { /*Formatação dos submenus*/
+  position: absolute; /*Posicionamento de exibição (Fica sobre o menu e não mexe com o cabeçalho)*/
+  background: white; /*Cor de fundo*/
+  padding: 10px 20px; /*Espaçamento interno*/
+  display: none; /*Remove sublinhado dos menus*/
+  flex-direction: column; /*Formato de lista em coluna*/
+  gap: 10px; /*Distância entre os itens*/
+  z-index: 99; /*Garante que o submenu fique na frente de outros itens*/
+  list-style: none; /*Remove marcadores de lista*/
 }
 
-.menu-item:hover .submenu {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
+.menu-item:hover .submenu { /*Animação dos submenus*/
+  display: flex; /*Submenu aparece*/
 }
 
-
-.menu-item:hover > .c{
-    color: #ff9800;
-    font-weight: bold;
-    border-bottom: 2px solid #ff9800;
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+.c:hover { /*Animação ao passar o mouse*/
+  color: #ff9800; /*Cor da fonte*/
+  font-weight: bold; /*Negrito*/
 }
 
-.c:hover {
-    color: #ff9800;
-    font-weight: bold;
-    border-bottom: 2px solid #ff9800;
+.submenuc li:hover { /*Formatação submenu*/
+  background-color: #e9be7e; /*Cor de fundo dos itens do submenu*/
+  color: #432c09; /*Cor da fonte*/
+  border-radius: 5px; /*Arredondamento da caixa*/
+  padding: 5px 10px; /*Tamanho da caixa*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.menu-item .icon {
-    margin-right: 5px;
+.g:hover { /*Animação ao passar o mouse*/
+  color: #795548; /*Cor da fonte*/
+  font-weight: bold; /*Negrito*/
 }
 
-.submenuc li:hover {
-    background-color: #e9be7e;
-    color: #432c09;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+.submenug li:hover{ /*Formatação submenu*/
+  background-color: #c29079; /*Cor de fundo dos itens do submenu*/
+  color: #432c09; /*Cor da fonte*/
+  border-radius: 5px; /*Arredondamento da caixa*/
+  padding: 5px 10px; /*Tamanho da caixa*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.menu-item:hover > .g{
-    color: #795548;
-    font-weight: bold;
-    border-bottom: 2px solid #795548;
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+.pa:hover { /*Animação ao passar o mouse*/
+  color: #4caf50; /*Cor da fonte*/
+  font-weight: bold; /*Negrito*/
 }
 
-.g:hover {
-    color: #795548;
-    font-weight: bold;
-    border-bottom: 2px solid #795548;
+.submenupa li:hover{ /*Formatação submenu*/
+  background-color: #8cce91; /*Cor de fundo dos itens do submenu*/
+  color: #432c09; /*Cor da fonte*/
+  border-radius: 5px; /*Arredondamento da caixa*/
+  padding: 5px 10px; /*Tamanho da caixa*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.submenug li:hover{
-    background-color: #c29079;
-    color: #432c09;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+.pe:hover { /*Animação ao passar o mouse*/
+  color: #2196f3; /*Cor da fonte*/
+  font-weight: bold; /*Negrito*/
 }
 
-.menu-item:hover > .pa{
-    color: #4caf50;
-    font-weight: bold;
-    border-bottom: 2px solid #4caf50;
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+.submenupe li:hover{ /*Formatação submenu*/
+  background-color: #7bb2df; /*Cor de fundo dos itens do submenu*/
+  color: #432c09; /*Cor da fonte*/
+  border-radius: 5px; /*Arredondamento da caixa*/
+  padding: 5px 10px; /*Tamanho da caixa*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.pa:hover {
-    color: #4caf50;
-    font-weight: bold;
-    border-bottom: 2px solid #4caf50;
+.o:hover { /*Animação ao passar o mouse*/
+  color: #009688; /*Cor da fonte*/
+  font-weight: bold; /*Negrito*/
 }
 
-.submenupa li:hover{
-    background-color: rgb(140, 206, 145);
-    color: #432c09;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+.submenuo li:hover{ /*Formatação submenu*/
+  background-color: #68b3ac; /*Cor de fundo dos itens do submenu*/
+  color: #432c09; /*Cor da fonte*/
+  border-radius: 5px; /*Arredondamento da caixa*/
+  padding: 5px 10px; /*Tamanho da caixa*/
+  cursor: pointer; /*Formato do cursor*/
 }
 
-.menu-item:hover > .pe{
-    color: #2196f3;
-    font-weight: bold;
-    border-bottom: 2px solid #2196f3;
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+.promo:hover,
+.blog:hover,
+.club:hover,
+.serv:hover { /*Itens do menu que não possuem submenus*/
+  font-weight: bold; /*Negrito*/
+  border-bottom: 2px solid; /*Sublinhado*/ 
 }
 
-.pe:hover {
-    color: #2196f3;
-    font-weight: bold;
-    border-bottom: 2px solid #2196f3;
+.promoc { /*Formatação da barra de promoção*/
+  background-color: #fff3cd; /*Cor de fundo*/
+  color: #664d03; /*Cor da fonte*/
+  padding: 8px; /*Tamanho da barra (largura)*/
+  text-align: center; /*Alinhamento do texto dentro da barra*/
+  font-weight: bold; /*Negrito*/
+  font-family: sans-serif; /*Fonte sem serifa*/
+  font-size: 15px; /*Tamanho da fonte*/
 }
 
-.submenupe li:hover{
-    background-color: #7bb2df;
-    color: #432c09;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+body { /*Corpo da página*/
+  font-family: 'Segoe UI', sans-serif; /*Tipo de fonte*/
+  background-color: #f9f9f9; /*Cor de fundo*/
+  color: #333; /*Cor da fonte*/
 }
 
-.menu-item:hover > .o{
-    color: #009688;
-    font-weight: bold;
-    border-bottom: 2px solid #009688;
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+.menu-item span { /*Ícones do menu*/
+  margin-right: 3px; /*Distância dos ícones para o texto*/
 }
 
-.o:hover {
-    color: #009688;
-    font-weight: bold;
-    border-bottom: 2px solid #009688;
+.services { /*Área de serviços*/
+  display: flex; /*Alinhamento horizontal dos itens*/
+  justify-content: center; /*Alinhamento central dos itens*/
+  gap: 100px; /*Espaçamento entre os itens*/
+  padding: 25px 10px; /*Espaçamento vertical (topo e fim)*/
+  margin: 20px 40px; /*Margem*/
 }
 
-.submenuo li:hover{
-    background-color: #68b3ac;
-    color: #432c09;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.promo:hover {
-    font-weight: bold;
-    border-bottom: 2px solid;
-    transition: all 0.2s ease;
-}
-
-.blog:hover {
-    font-weight: bold;
-    border-bottom: 2px solid;
-    transition: all 0.2s ease;
-}
-
-.club:hover {
-    font-weight: bold;
-    border-bottom: 2px solid;
-    transition: all 0.2s ease;
-}
-
-.serv:hover {
-    font-weight: bold;
-    border-bottom: 2px solid;
-    transition: all 0.2s ease;
-}
-
-.promoc {
-    background-color: #fff3cd;
-    color: #664d03;
-    padding: 8px;
-    text-align: center;
-    font-weight: bold;
-    font-family: sans-serif;
-    border-top: 1px solid #ffeeba;
-    border-bottom: 1px solid #ffeeba;
-    font-size: 14px;
-}
-
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-.menu-item span {
-    margin-right: 6px;
-}
-
-.services {
-    display: flex;
-    justify-content: center;
-    gap: 150px;
-    padding: 25px 0;
-}
-
-.service-item {
-    background-color: #fff;
-    border: 1.5px solid #e6c088;
-    border-radius: 10px;
-    padding: 15px 25px;
-    font-weight: 600;
-    font-size: 16px;
-    color: #5d4a1a;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(230, 192, 136, 0.4);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.service-item:hover {
-    background-color: #e6c088;
-    color: white;
-    box-shadow: 0 5px 15px rgba(230, 192, 136, 0.6);
-    transform: translateY(-4px);
-}
-
-
-.benefits {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    padding: 25px 50px 40px 50px;
-    margin: 0 40px 40px 40px;
-}
-
+.service-item,
 .benefit-card {
-    background-color: #fff;
-    border: 2px solid #e6c088;
-    padding: 20px 30px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    color: #5d4a1a;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(230, 192, 136, 0.3);
-    transition: all 0.3s ease;
-    cursor: default;
-    flex: 1;
-    max-width: 220px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  background-color: #fff; /*Cor de fundo*/
+  border: 1.5px solid #e6c088; /*Cor do contorno da caixa*/
+  color: #5d4a1a; /*Cor da fonte*/
+  border-radius: 10px; /*Arredondamento da caixa*/
+  font-weight: 600; /*Negrito*/
+  transition: all 0.3s ease; /*Suaviza o efeito do hover*/
 }
 
-.benefit-card:hover {
-    background-color: #e6c088;
-    color: white;
-    box-shadow: 0 6px 18px rgba(230, 192, 136, 0.7);
-    transform: translateY(-4px);
+.service-item { /*Formatação dos serviços*/
+  padding: 15px 25px; /*Tamanho da caixa*/
+  cursor: pointer; /*Formato do cursor*/ 
 }
 
-.carrossel-container {
-    position: relative;
-    width: 50%;
-    max-width: 800px;
-    height: 350px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 16px;
+.service-item:hover,
+.benefit-card:hover { /*Animação ao passar o mouse*/
+  background-color: #e6c088; /*Cor de fundo*/
+  color: white; /*Cor da fonte*/
+  box-shadow: 0 5px 15px rgba(230, 192, 136, 0.6); /*Sombra da caixa*/
+  transform: translateY(-4px); /*Efeito 3D*/
 }
 
-.carrossel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.benefits { /*Área de benefícios*/
+  display: flex; /*Alinhamento horizontal dos itens*/
+  justify-content: center; /*Alinhamento central dos itens*/
+  gap: 100px; /*Espaçamento entre os itens*/
+  padding: 25px 10px; /*Espaçamento vertical (topo e fim)*/
+  margin: 20px 40px; /*Margem*/
 }
 
-.slide {
-    min-width: 100%;
-    transition: opacity 0.5s;
-    display: none;
+.benefit-card { /*Formatação dos benefícios*/
+  padding: 20px 30px; /*Tamanho da caixa*/
+  text-align: center; /*Alinhamento central do texto*/     
+  cursor: default; /*Formato do cursor*/
 }
 
-.slide.active {
-    display: block;
+.carrossel-container { /*Área do carrossel*/
+  position: relative; /*Posicionamento entre os elementos do carrossel (setas e imagens)*/
+  width: 43%; /*Setas ficam sobrepostas na imagem*/
+  margin: auto; /*Posicionamento central relativo às margens*/
 }
 
-.slide img {
-    width: 700px;
-    height: 400px;
-    margin: auto;
-    display: block;
-    border-radius: 16px;
-    align-items: center;
+.slide { /*Imagens do slide*/
+  min-width: 100%; /*Ocupa 100% do container*/
+  display: none; /*As imagens são exibidas como slide*/
 }
 
-.nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: bisque;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 10;
+.slide.active { /*Classe JS*/
+  display: block; /*Exibe as imagens*/
+}
+
+.slide img { /*Imagens do slide*/
+  height: 400px; /*Altura*/
+  margin: auto; /*Alinhamento entre as margens*/
+  display: block; /*Imagens alinhadas*/
+  border-radius: 16px; /*Arredondamento das imagens*/
+}
+
+.nav { /*Setas do slide*/
+  position: absolute; /*Posicionamento das setas relativo às imagens*/
+  top: 45%; /*Altura da posição*/
+  border: none; /*Sem bordas*/
+  border-radius: 50%; /*Arredondamento*/
+  cursor: pointer; /*Formato do cursor*/
+  font-size: 15px; /*Tamanho da fonte (setas estão em forma de fonte*/
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); /*Sombra*/
 }
 
 
-.nav.prev {
-    left: 5px;
-    padding: 15px;
-    background-color: bisque;
+.nav.prev { /*Seta da esquerda*/
+  left: 5px; /*Posicionamento da seta*/
+  padding: 15px; /*Tamanho*/
+  background-color: rgba(255, 228, 196, 0.834); /*Cor de fundo*/
 }
 
-.nav.next {
-    right: 5px;
-    padding: 15px;
-    background-color: bisque;
+.nav.next { /*Seta da direita*/
+  right: 5px; /*Posicionamento da seta*/
+  padding: 15px; /*Tamanho*/
+  background-color: rgba(255, 228, 196, 0.834); /*Cor de fundo*/
 }
 
-.no-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+.no-link { /*Elementos que são links*/
+  text-decoration: none; /*Remove sublinhado*/
+  color: inherit; /*Remove formatação da cor*/
+  cursor: pointer; /*Formato de cursor*/
 }
 
-
-.infos {
-    display: flex;
-    justify-content: center;
-    gap: 300px;
-    padding: 25px 50px 40px 50px;
-    margin: 0 40px 40px 40px;
-    font-size: 20px;
-    font-weight: bold;
+.footer { /*Rodapé*/
+  display: flex; /*Alinhamento de elementos*/
+  justify-content: space-around; /*Posição dos itens*/
+  align-items: center; /*Alinhamento centralizado dentro do rodapé*/
+  padding: 30px; /*Espaçamento entre as margens*/
+  background-color: #f5f5f5; /*Cor de fundo*/
+  border-top: 2px solid #e6c088; /*Linha de divisão entre o footer e section*/
 }
 
-.footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  padding: 30px;
-  background-color: #f5f5f5;
-  gap: 5px;
-  border-top: 2px solid #e6c088;
-}
-
-.footer-section h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #5d4a1a;
+.footer-section h3 { /*Formatação do texto do footer*/
+  font-size: 18px; /*Tamanho da fonte*/
+  margin-bottom: 15px; /*Distância entre título e elementos*/
+  color: #5d4a1a; /*Cor da fonte*/
 }
 
 .icon-row,
-.payment-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.payment-grid { /*Formatação dos elementos do footer*/
+  display: flex; /*Distância entre os elementos*/
+  gap: 10px; /*Espaçamento*/
 }
 
-.footer-selos .icon-row img {
-    width: 45px;
-    filter: grayscale(100%);
+.footer-pagamento .payment-grid { /*Formatação dos elementos do pagamento*/
+  display: grid; /*Alinhamento vertical*/
+  grid-template-columns: repeat(4, 1fr); /*Formato da grade*/
+  justify-items: auto; /*Alinhamento centralizado */
+  gap: 5px; /*Distância entre os elementos*/
 }
 
-.footer-pagamento .payment-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-  gap: 10px;
+.footer img { /*Formatação das imagens do footer*/
+  width: 40px; /*Tamanho*/
 }
 
-.footer img {
-  width: 38px;
-  height: auto;
-  object-fit: contain;
-  filter: grayscale(100%);
-}
-
-.icon-row img,
-.payment-grid img {
-  cursor: default;
-  transition: none;
-  filter: grayscale(100%);
-}
-
-.icon-row a img {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.icon-row a img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.1);
+.icon-row a img:hover { /*Animação ao passar o mouse*/
+  transform: scale(1.1); /*Aumenta o tamanho quando passa o mouse*/
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-  }  
-
-  .logo {
-    height: 100px;
-  }
-
-  .logo-container {
-    padding-left: 0;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .search-bar {
-    width: 90%;
-    margin: 10px auto;
-  }
-
-  .search-bar input[type="text"] {
-    padding: 0 15px;
-  }
-
-  .cart {
-    position: static;
-    margin-top: 10px;
-  }
-
-  .promoc {
-    font-size: 18px;
-    padding: 10px;
-    line-height: 1.5;
+  body {
+    background-color: lightpink;
   }
 }
 
-@media (max-width: 768px) {
-  .navb {
-    padding: 0;
-  }
-
-  .menu {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .menu-item {
-    text-align: center;
-  }
-
-  .submenu {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    box-shadow: none;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .services,
-  .benefits {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .benefit-card,
-  .service-item {
-    width: 90%;
-  }
-
-  .services {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    gap: 15px;
-  }
-
-  .service-item {
-    flex: 1 1 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
-  }
-}
-
-@media (max-width: 768px) {
-  .carrossel-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .slide img {
-    width: 100%;
-    height: auto;
-  }
-
-  .nav.prev,
-  .nav.next {
-    margin: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .nav.prev {
-    left: 10px;
-  }
-
-  .nav.next {
-    right: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer {
-    gap: 20px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer img {
-    width: 32px;
-  }
-
-  .footer-section h3 {
-    font-size: 16px;
-  }
-}
 
 
 
