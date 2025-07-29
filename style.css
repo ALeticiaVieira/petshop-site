@@ -1,337 +1,671 @@
-@charset "UTF-8"; /*Para o uso de caracteres*/
-
-* { /*Margens e preenchimentos dos navegadores*/
-  margin: 0; /*Margem*/
-  padding: 0; /*Preenchimento*/
-  box-sizing: border-box; /*Para incluir margin e padding no tamanho total do elemento*/
-} 
-
-header { /*Cabeçalho*/
-  background-color: bisque; /*Cor de fundo*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navb { /*Barra de navegação*/
-  padding: 5px; /*Espaçamento interno*/
-  padding-left: 300px; /*Localização*/
-  border-bottom: 1px solid #ddd; /*Linha no final da barra*/
-}    
-
-.logo-container { /*Container logo*/
-  display: flex; /*Organização da logo junto aos elementos*/
-  align-items: center; /*Alinhamento dos itens no centro*/
-  padding-left: 40px; /*Localização dos itens*/
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fefefe;
+  color: #333;
 }
 
-.logo { /*Logo*/
-  height: 180px; /*Tamanho da imagem*/
-  margin-right: 10px; /*Espaçamento à direita*/
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.search-bar { /*Barra de busca*/
-  border: 1px solid #ccc; /*Estilo da barra*/
-  border-radius: 25px; /*Arredondamento das bordas*/
-  overflow: hidden; /*Elementos permaneçam na barra*/
-  height: 35px; /*Tamanho da barra (altura)*/
-  background-color: #fff; /*Cor de fundo*/
-  margin-left: 130px; /*Localização da barra à direita*/
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.search-bar input[type="text"] { /*Texto da barra de busca*/
-  border: none; /*Sem borda*/
-  padding: 0 300px; /*Tamanho*/
-  outline: none; /*Remove linha de foco que aparece ao clicar*/
-  font-size: 16px; /*Tamanho da fonte*/
+ul {
+  list-style: none;
 }
 
-.search-bar button { /*Botão de pesquisa*/
-  background-color: #e6c088; /*Cor de fundo*/
-  border: none; /*Sem borda*/
-  padding: 0 15px; /*Tamanho*/
-  cursor: pointer; /*Formato do cursor*/
-  height: 100%; /*Altura da barra*/
-  font-size: 18px; /*Tamanho da fonte (no caso, do emoji)*/
+.header {
+  background-color: #ffe4c4;
+  padding: 0;
 }
 
-.cart { /*Carrinho de compras*/
-  position: relative; /*Posição de elementos filhos em relação à ele (contador)*/
-  margin-left: 10px; /*Localização*/
+.top-bar {
+  background-color: #ffe4c4;
+  padding: 10px;
 }
 
-.cart img { /*Imagem do carrinho de compras*/
-  width: 30px; /*Tamanho da imagem*/
-  cursor: pointer; /*Formato do cursor*/
+.top-bar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  position: relative;
 }
 
-.cart-count { /*Contador*/
-  position: absolute; /*Posiciona o contador sobre a imagem do carrinho de compras*/
-  top: -8px; /*Posição em relação ao topo*/
-  right: -5px; /*Posição à direita*/
-  background-color: #432c09; /*Cor de fundo do contador*/
-  color: white; /*Cor da fonte do contador*/
-  font-size: 12px; /*Tamanho da fonte do contador*/
-  padding: 2px 6px; /*Tamanho do contador*/
-  border-radius: 50%; /*Formato arredondado do contador*/
+.hamburger {
+  font-size: 28px;
+  background: none;
+  border: none;
 }
 
-.menu { /*Formatação do menu*/
-  display: flex; /*Alinhamento horizontal dos itens*/
-  list-style: none; /*Remove marcadores de lista*/
-  gap: 45px; /*Espaçamento entre os itens*/
-  margin-top: -40px; /*Distância do menu para o topo*/
-  margin-left: -60px; /*Distância dos itens para margem lateral*/ 
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  flex: 1;
 }
 
-.menu-item { /*Relação dos submenus com o menu*/
-  position: relative; /*Exibição dos submenus ao passar o mouse por cima*/
-  cursor: pointer; /*Formato do cursor*/
+.logo-img {
+  width: 200px;
+  margin: 0 auto;
 }
 
-.submenu { /*Formatação dos submenus*/
-  position: absolute; /*Posicionamento de exibição (Fica sobre o menu e não mexe com o cabeçalho)*/
-  background: white; /*Cor de fundo*/
-  padding: 10px 20px; /*Espaçamento interno*/
-  display: none; /*Remove sublinhado dos menus*/
-  flex-direction: column; /*Formato de lista em coluna*/
-  gap: 10px; /*Distância entre os itens*/
-  z-index: 99; /*Garante que o submenu fique na frente de outros itens*/
-  list-style: none; /*Remove marcadores de lista*/
+.top-bar-search-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.menu-item:hover .submenu { /*Animação dos submenus*/
-  display: flex; /*Submenu aparece*/
+.search-bar {
+  display: flex;
+  flex: 1;
+  padding-left: 50px;
+  margin-bottom: 10px;  
 }
 
-.c:hover { /*Animação ao passar o mouse*/
-  color: #ff9800; /*Cor da fonte*/
-  font-weight: bold; /*Negrito*/
+.search-bar input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px 0 0 10px;
 }
 
-.submenuc li:hover { /*Formatação submenu*/
-  background-color: #e9be7e; /*Cor de fundo dos itens do submenu*/
-  color: #432c09; /*Cor da fonte*/
-  border-radius: 5px; /*Arredondamento da caixa*/
-  padding: 5px 10px; /*Tamanho da caixa*/
-  cursor: pointer; /*Formato do cursor*/
+.search-bar button {
+  background-color: #e6c088;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
 }
 
-.g:hover { /*Animação ao passar o mouse*/
-  color: #795548; /*Cor da fonte*/
-  font-weight: bold; /*Negrito*/
+.search-bar-text {
+  text-align: center;
 }
 
-.submenug li:hover{ /*Formatação submenu*/
-  background-color: #c29079; /*Cor de fundo dos itens do submenu*/
-  color: #432c09; /*Cor da fonte*/
-  border-radius: 5px; /*Arredondamento da caixa*/
-  padding: 5px 10px; /*Tamanho da caixa*/
-  cursor: pointer; /*Formato do cursor*/
+.cart {
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: -50px;
+  margin-top: -150px;
+  right: 20px;
 }
 
-.pa:hover { /*Animação ao passar o mouse*/
-  color: #4caf50; /*Cor da fonte*/
-  font-weight: bold; /*Negrito*/
+.cart img {
+  width: 30px;
 }
 
-.submenupa li:hover{ /*Formatação submenu*/
-  background-color: #8cce91; /*Cor de fundo dos itens do submenu*/
-  color: #432c09; /*Cor da fonte*/
-  border-radius: 5px; /*Arredondamento da caixa*/
-  padding: 5px 10px; /*Tamanho da caixa*/
-  cursor: pointer; /*Formato do cursor*/
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #432c09;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 8px;
 }
 
-.pe:hover { /*Animação ao passar o mouse*/
-  color: #2196f3; /*Cor da fonte*/
-  font-weight: bold; /*Negrito*/
+.promo-bar {
+  background-color: #fff2c6;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
 }
 
-.submenupe li:hover{ /*Formatação submenu*/
-  background-color: #7bb2df; /*Cor de fundo dos itens do submenu*/
-  color: #432c09; /*Cor da fonte*/
-  border-radius: 5px; /*Arredondamento da caixa*/
-  padding: 5px 10px; /*Tamanho da caixa*/
-  cursor: pointer; /*Formato do cursor*/
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+  background-color: #ffe4c4;
+  border: 1px solid #d4a373;
+  border-radius: 8px;
+  position: absolute;
+  top: 70px;
+  left: 40px;
+  right: 0;
+  margin: 0;
+  width: 90%;
+  max-width: 300px;
+  z-index: 1000;
 }
 
-.o:hover { /*Animação ao passar o mouse*/
-  color: #009688; /*Cor da fonte*/
-  font-weight: bold; /*Negrito*/
+.menu.active {
+    display: flex;
 }
 
-.submenuo li:hover{ /*Formatação submenu*/
-  background-color: #68b3ac; /*Cor de fundo dos itens do submenu*/
-  color: #432c09; /*Cor da fonte*/
-  border-radius: 5px; /*Arredondamento da caixa*/
-  padding: 5px 10px; /*Tamanho da caixa*/
-  cursor: pointer; /*Formato do cursor*/
+.menu-item {
+  color: #432c09;
+  cursor: pointer;
 }
 
-.promo:hover,
-.blog:hover,
-.club:hover,
-.serv:hover { /*Itens do menu que não possuem submenus*/
-  font-weight: bold; /*Negrito*/
-  border-bottom: 2px solid; /*Sublinhado*/ 
+.menu-item.c.open > .c {
+  color: #ff9800;
+  font-weight: bold;
 }
 
-.promoc { /*Formatação da barra de promoção*/
-  background-color: #fff3cd; /*Cor de fundo*/
-  color: #664d03; /*Cor da fonte*/
-  padding: 8px; /*Tamanho da barra (largura)*/
-  text-align: center; /*Alinhamento do texto dentro da barra*/
-  font-weight: bold; /*Negrito*/
-  font-family: sans-serif; /*Fonte sem serifa*/
-  font-size: 15px; /*Tamanho da fonte*/
+.menu-item.g.open > .g {
+  color: #795548;
+  font-weight: bold;
 }
 
-body { /*Corpo da página*/
-  font-family: 'Segoe UI', sans-serif; /*Tipo de fonte*/
-  background-color: #f9f9f9; /*Cor de fundo*/
-  color: #333; /*Cor da fonte*/
+.menu-item.pa.open > .pa {
+  color: #4caf50;
+  font-weight: bold;
 }
 
-.menu-item span { /*Ícones do menu*/
-  margin-right: 3px; /*Distância dos ícones para o texto*/
+.menu-item.pe.open > .pe {
+  color: #2196f3;
+  font-weight: bold;
 }
 
-.services { /*Área de serviços*/
-  display: flex; /*Alinhamento horizontal dos itens*/
-  justify-content: center; /*Alinhamento central dos itens*/
-  gap: 100px; /*Espaçamento entre os itens*/
-  padding: 25px 10px; /*Espaçamento vertical (topo e fim)*/
-  margin: 20px 40px; /*Margem*/
+.menu-item.o.open > .o {
+  color: #009688;
+  font-weight: bold;
 }
 
-.service-item,
+.menu-item.link:hover > span,
+.menu-item.link:hover > span a{
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.service-item {
+  background-color: #ffe7b2;
+  padding: 12px 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.service-item:hover {
+  background-color: #ffdfa0;
+}
+
+.carousel {
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.carrossel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carrossel .slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.slide {
+  min-width: 100%;
+  transition: opacity 0.5s ease;
+  height: auto;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 90px;
+  color: rgba(0, 0, 0, 0.233);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  align-items: center;
+}
+
 .benefit-card {
-  background-color: #fff; /*Cor de fundo*/
-  border: 1.5px solid #e6c088; /*Cor do contorno da caixa*/
-  color: #5d4a1a; /*Cor da fonte*/
-  border-radius: 10px; /*Arredondamento da caixa*/
-  font-weight: 600; /*Negrito*/
-  transition: all 0.3s ease; /*Suaviza o efeito do hover*/
+  background-color: #e5f7f0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
 }
 
-.service-item { /*Formatação dos serviços*/
-  padding: 15px 25px; /*Tamanho da caixa*/
-  cursor: pointer; /*Formato do cursor*/ 
+.footer {
+  background-color: bisque;
+  margin: auto;
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
-.service-item:hover,
-.benefit-card:hover { /*Animação ao passar o mouse*/
-  background-color: #e6c088; /*Cor de fundo*/
-  color: white; /*Cor da fonte*/
-  box-shadow: 0 5px 15px rgba(230, 192, 136, 0.6); /*Sombra da caixa*/
-  transform: translateY(-4px); /*Efeito 3D*/
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px;
 }
 
-.benefits { /*Área de benefícios*/
-  display: flex; /*Alinhamento horizontal dos itens*/
-  justify-content: center; /*Alinhamento central dos itens*/
-  gap: 100px; /*Espaçamento entre os itens*/
-  padding: 25px 10px; /*Espaçamento vertical (topo e fim)*/
-  margin: 20px 40px; /*Margem*/
+.footer-section h3 {
+  margin-bottom: 10px;
 }
 
-.benefit-card { /*Formatação dos benefícios*/
-  padding: 20px 30px; /*Tamanho da caixa*/
-  text-align: center; /*Alinhamento central do texto*/     
-  cursor: default; /*Formato do cursor*/
+.icon-row, 
+.social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.carrossel-container { /*Área do carrossel*/
-  position: relative; /*Posicionamento entre os elementos do carrossel (setas e imagens)*/
-  width: 43%; /*Setas ficam sobrepostas na imagem*/
-  margin: auto; /*Posicionamento central relativo às margens*/
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
 }
 
-.slide { /*Imagens do slide*/
-  min-width: 100%; /*Ocupa 100% do container*/
-  display: none; /*As imagens são exibidas como slide*/
+.payment-grid img,
+.icon-row img,
+.social img {
+  width: 40px;
 }
 
-.slide.active { /*Classe JS*/
-  display: block; /*Exibe as imagens*/
+.slide {
+    display: none;
 }
 
-.slide img { /*Imagens do slide*/
-  height: 400px; /*Altura*/
-  margin: auto; /*Alinhamento entre as margens*/
-  display: block; /*Imagens alinhadas*/
-  border-radius: 16px; /*Arredondamento das imagens*/
-}
-
-.nav { /*Setas do slide*/
-  position: absolute; /*Posicionamento das setas relativo às imagens*/
-  top: 45%; /*Altura da posição*/
-  border: none; /*Sem bordas*/
-  border-radius: 50%; /*Arredondamento*/
-  cursor: pointer; /*Formato do cursor*/
-  font-size: 15px; /*Tamanho da fonte (setas estão em forma de fonte*/
-  box-shadow: 0 0 10px rgba(0,0,0,0.2); /*Sombra*/
+.slide.active {
+    display: block;
 }
 
 
-.nav.prev { /*Seta da esquerda*/
-  left: 5px; /*Posicionamento da seta*/
-  padding: 15px; /*Tamanho*/
-  background-color: rgba(255, 228, 196, 0.834); /*Cor de fundo*/
+@media (min-width: 768px) {
+  .top-bar-search-cart {
+    margin-bottom: 20px;
+  }
+
+ .footer {
+    justify-content: space-between;
+    padding: 30px;  
+  }
+
+  .footer-section {
+  flex: 1 1 150px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
 }
 
-.nav.next { /*Seta da direita*/
-  right: 5px; /*Posicionamento da seta*/
-  padding: 15px; /*Tamanho*/
-  background-color: rgba(255, 228, 196, 0.834); /*Cor de fundo*/
+  .footer-section h3 {
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+  }
+
+  .footer-selos,
+  .footer-social {
+    margin-top: 30px;
+   }
+
+  .footer-pagamento {
+    justify-items: center;
+  }
 }
 
-.no-link { /*Elementos que são links*/
-  text-decoration: none; /*Remove sublinhado*/
-  color: inherit; /*Remove formatação da cor*/
-  cursor: pointer; /*Formato de cursor*/
-}
+@media (max-width: 1023px) {
+  .search-bar {
+    display: flex;
+    flex: 1;
+    padding-left: 50px;
+    margin-bottom: 10px;
+    margin-top: -50px;
+  }
 
-.footer { /*Rodapé*/
-  display: flex; /*Alinhamento de elementos*/
-  justify-content: space-around; /*Posição dos itens*/
-  align-items: center; /*Alinhamento centralizado dentro do rodapé*/
-  padding: 30px; /*Espaçamento entre as margens*/
-  background-color: #f5f5f5; /*Cor de fundo*/
-  border-top: 2px solid #e6c088; /*Linha de divisão entre o footer e section*/
-}
-
-.footer-section h3 { /*Formatação do texto do footer*/
-  font-size: 18px; /*Tamanho da fonte*/
-  margin-bottom: 15px; /*Distância entre título e elementos*/
-  color: #5d4a1a; /*Cor da fonte*/
-}
-
-.icon-row,
-.payment-grid { /*Formatação dos elementos do footer*/
-  display: flex; /*Distância entre os elementos*/
-  gap: 10px; /*Espaçamento*/
-}
-
-.footer-pagamento .payment-grid { /*Formatação dos elementos do pagamento*/
-  display: grid; /*Alinhamento vertical*/
-  grid-template-columns: repeat(4, 1fr); /*Formato da grade*/
-  justify-items: auto; /*Alinhamento centralizado */
-  gap: 5px; /*Distância entre os elementos*/
-}
-
-.footer img { /*Formatação das imagens do footer*/
-  width: 40px; /*Tamanho*/
-}
-
-.icon-row a img:hover { /*Animação ao passar o mouse*/
-  transform: scale(1.1); /*Aumenta o tamanho quando passa o mouse*/
-}
-
-@media (max-width: 768px) {
-  body {
-    background-color: lightpink;
+  .cart {
+    margin-left: 30px;
+    margin-bottom: -50px;
+    margin-top: -150px;
+    right: 20px;
   }
 }
 
 
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+  
+  .top-bar {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
 
+  .logo-img {
+    height: 180px;  
+    width: 170px;
+    margin-right: 10px;
+    margin-top: -20px;
+  }
 
+  .search-bar {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 35px;
+    background-color: #fff;
+    margin-left: 350px;
+    margin-top: -210px;
+    display: flex;
+    flex: 1;
+    max-width: 800px;
+  }
+
+  .search-bar input {
+    flex: 1;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+
+  .search-barr input[type="text"] {
+    border: none;
+    padding: 0 300px;
+    outline: none;
+    font-size: 16px;
+  }
+
+ .search-bar button {
+  background-color: #e6c088;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 18px;
+  height: 100%;
+  }
+
+  .cart {
+    margin-right: 300px;
+    margin-top: -270px; 
+  }
+
+  .cart img {
+    width: 40px;
+    cursor: pointer;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -12px;
+    right: -5px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 100%;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin-top: 100px;
+  }
+
+  .menu-item {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .submenu {
+    position: absolute;
+    background: white;
+    padding: 10px 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 99;
+    list-style: none;
+  }
+
+   .menu-item .submenu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .menu-item.show .submenu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .menuc:hover {
+    color: #ff9800;
+    font-weight: bold;
+  }
+
+  .submenuc li:hover {
+    background-color: #e9be7e;
+    color: #432c09;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .menug:hover {
+    color: #795548;
+    font-weight: bold;
+  }
+
+  .submenug li:hover {
+    background-color: #c29079;
+    color: #432c09;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .menupa:hover {
+    color: #4caf50;
+    font-weight: bold;
+  }
+
+  .submenupa li:hover {
+    background-color: #8cce91;
+    color: #432c09;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .menupe:hover {
+    color: #2196f3;
+    font-weight: bold;
+  }
+
+  .submenupe li:hover {
+    background-color: #7bb2df;
+    color: #432c09;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .menuo:hover {
+    color: #009688;
+    font-weight: bold;
+  }
+
+  .submenuo li:hover {
+    background-color: #68b3ac;
+    color: #432c09;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .promo-bar {
+    background-color: #fff3cd;
+    color: #664d03;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 15px;
+  }
+
+  .services {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    padding: 25px 10px;
+    margin: 20px 40px;
+  }
+
+  .service-item,
+  .benefit-card {
+    background-color: #fff;
+    border: 1.5px solid #e6c088;
+    color: #5d4a1a;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .service-item {
+    padding: 15px 25px;
+    cursor: pointer;
+  }
+
+  .service-item:hover {
+    background-color: #e6c088;
+    color: white;
+    box-shadow: 0 5px 15px rgba(230, 192, 136, 0.6);
+    transform: translateY(-4px);
+  }
+
+  .benefits {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 25px 10px;
+    margin: 20px 40px;
+    flex-direction: row;
+  }
+
+  .benefit-card {
+    padding: 20px 30px;
+    text-align: center;
+    cursor: default;
+  }
+
+  .carrossel-container {
+    position: relative;
+    width: 43%;
+    margin: auto;
+  }
+
+  .slide {
+    min-width: 100%;
+    display: none;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .slide img {
+    height: 400px;
+    margin: auto;
+    display: block;
+    border-radius: 16px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 45%;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav.prev {
+    left: 5px;
+    padding: 20px;
+    background-color: rgba(255, 228, 196, 0.834);
+  }
+
+  .nav.next {
+    right: 5px;
+    padding: 20px;
+    background-color: rgba(255, 228, 196, 0.834);
+  }
+}
